@@ -1,0 +1,39 @@
+.leftColumn{
+    
+    width: 50%;
+    height: 500px;
+}
+.rightColumn{
+    
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 500px;
+    padding-top: 70px;
+}
+.outerRow{
+    margin: 10%;
+    margin-bottom: 0%;
+}
+
+
+.logInButton{
+  
+  background-color:#FC4734;
+  width: 50%;
+}
+.error{
+    color: red;
+    text-align: center;
+}
+.loginLogo{
+    width: 450px;
+    float: right;
+}
+
+.password{
+    margin-left: 20%;
+    width: 900px;
+    
+}
+

@@ -1,0 +1,56 @@
+.switchRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  color: white;
+}
+.titleRow{
+  margin-top: 0;
+}
+
+.ant-segmented {
+  background-color: #ff851f;
+}
+label.ant-segmented-item.ant-segmented-item-selected {
+  color: #ff851f;
+}
+
+.trendingRow {
+  width: 100%;
+background-color: #fefcf6;
+  padding: 10%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.backgroundRow {
+background-color: #fefcf6;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.trendCard {
+margin-bottom: 50px;
+width: 100%;
+border-radius: 30px;
+border-width: 1px;
+border-color: rgb(214, 214, 214);
+padding: 0;
+ 
+}
+.trendCardCol{
+  padding: 10px;
+    width: 100%;
+}
+.card-img{
+ width: 100%;
+ border-radius: 20px 20px 0px 0px;
+}
+.card-desc-div{
+  padding: 10px 20px 10px 20px; 
+}

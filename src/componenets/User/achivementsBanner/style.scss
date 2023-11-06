@@ -1,0 +1,59 @@
+.achivement-out {
+  width: 80%;
+  display: inline-flex;
+  overflow-x: scroll;
+  height: 148px;
+  background-color: #1c2937;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 0px 0px 25px 25px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin:0;
+  }
+}
+
+.achivements {
+  color: rgb(255, 115, 83);
+}
+
+.appScaleLogo {
+  margin-left: 15px;
+  @media (max-width: 768px) {
+    width: 300px;
+  }
+}
+.logo-div {
+  width: 300px;
+}
+.vertical-divider {
+  width: 2px;
+  height: 40%;
+  background-color: #2f3d5a;
+  margin: 0 10px;
+  margin-top: 40px;
+}
+.achivement-sub {
+  width: 180px;
+  text-align: center;
+}
+.achivement-logo {
+  padding-top: 25px;
+  width: 350px;
+  @media (max-width: 768px) {
+    width: 320px;
+  }
+}
+.achivement {
+  padding-left: 28px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.achivement-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+.achivement-out::-webkit-scrollbar {
+  display: none;
+}
