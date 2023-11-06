@@ -1,6 +1,5 @@
-import { Row, Col, Typography } from "antd";
+import {Typography } from "antd";
 import appScaleLogo from "../../../assets/images/Fact 7.png";
-import achivements from "../../../assets/images/Frame 82.png"
 import "../../font.scss";
 import "./style.scss";
 

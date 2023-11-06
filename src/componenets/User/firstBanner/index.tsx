@@ -1,7 +1,6 @@
 import "./../../font.scss";
 import "./style.scss";
-import { Col, Row, Space, Typography } from "antd";
-import phones from "../../../assets/images/cover 1.png";
+import { Col, Row, Typography } from "antd";
 import playStore from "../../../assets/images/google-play-badge.png"
 import appStore from "../../../assets/images/256x256.png"
 

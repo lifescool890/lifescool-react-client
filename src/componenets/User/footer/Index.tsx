@@ -1,4 +1,4 @@
-import { Row ,Space,Col} from 'antd'
+import { Row,Col} from 'antd'
 import "./style.scss"
 import "../../font.scss"
 import whiteLogo from "../../../assets/images/white-logo-rectangle.png"

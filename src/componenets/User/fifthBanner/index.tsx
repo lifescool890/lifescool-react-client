@@ -1,5 +1,4 @@
 import { Col, Row, Form, Input, Button } from "antd";
-import React from "react";
 import "../../font.scss"
 import "./style.scss";
 import TextArea from "antd/es/input/TextArea";
