@@ -213,7 +213,7 @@ function index() {
 
       const data = fileList;
 
-      data.forEach((file, index) => {
+      data.forEach((file) => {
         console.log("file");
 
         console.log(file);

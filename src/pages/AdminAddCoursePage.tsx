@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AdminAddCourse from "../componenets/admin/admin-addCourse/index"
 
 function AdminAddCoursePage() {

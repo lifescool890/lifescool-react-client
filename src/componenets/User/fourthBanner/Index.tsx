@@ -32,7 +32,7 @@ function Index() {
         />
       </Row>
       <Row className="trendingRow">
-        {trending.map((item,index) => (
+        {trending.map((item) => (
           
           <Col className="trendCardCol" xs={24} sm={24}md={8}>
             <Card

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './style.scss'
 import '../../font.scss'
 function index() {
