@@ -17,7 +17,7 @@ function Index() {
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
-    adminApi.post("/login", values).then((response) => {
+    adminApi.post("/login", values).then((response:any) => {
       const auth: string = response.data.authentication;
       const authToken: string = response.data.authToken;
       if (auth) {

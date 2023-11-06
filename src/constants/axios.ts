@@ -19,7 +19,7 @@ export const adminImageApi = axios.create({
 }); 
 
 adminApi.interceptors.request.use(
-    function(configs) {
+    function(configs:any) {
         let admin=localStorage.getItem("authToken")
       const token = admin
       if (token) {

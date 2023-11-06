@@ -72,7 +72,7 @@ const Index: React.FC = () => {
     const value ={
       id:id
     }
-    await adminApi.post("/deleteCourse",value).then((response)=>{
+    await adminApi.post("/deleteCourse",value).then((response:any)=>{
       console.log("delete",response);
       setReload(!reload)
       
@@ -85,7 +85,7 @@ const Index: React.FC = () => {
     navigate("/admin/add-course");
   };
   let allCourses = async () => {
-    await adminApi.get("/getAllCourses").then((response) => {
+    await adminApi.get("/getAllCourses").then((response:any) => {
       console.log("resp", response.data.data);
       let data = response.data;
 

@@ -65,7 +65,7 @@ function index() {
   }, []);
 
   const getOneCourse = (id: number) => {
-    adminApi.post("/getOneCourse", { id: id }).then((response) => {
+    adminApi.post("/getOneCourse", { id: id }).then((response:any) => {
       console.log("reeees", response);
       setCourseData(response.data.data);
       const dataArray = response.data.data;
