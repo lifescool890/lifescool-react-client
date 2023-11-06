@@ -27,7 +27,7 @@ adminApi.interceptors.request.use(
       }
       return configs;
     },
-    function(error) {
+    function(error:any) {
       return Promise.reject(error);
     }
 )
