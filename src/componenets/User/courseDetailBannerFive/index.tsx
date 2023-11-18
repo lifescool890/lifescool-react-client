@@ -1,5 +1,4 @@
 import { Col, Row, Typography } from "antd";
-import testimg from "../../../assets/images/gradient.jpeg";
 import "./style.scss";
 
 function index(props:any) {

@@ -1,4 +1,4 @@
-import { Row, Typography, Segmented, Card, Col } from "antd";
+import { Row, Typography, Card, Col } from "antd";
 import "../../font.scss";
 import "./style.scss";
 import { useEffect, useState } from "react";
