@@ -1,7 +1,8 @@
 import axios from 'axios';
+import 'dotenv'
 
-const adminBaseURL = 'http://localhost:3000/admin'
-const userBaseURL = 'http://localhost:3000/'
+const adminBaseURL =process.env.ADMIN_BASE_URL
+const userBaseURL = process.env.USER_BASE_URL
 const adminApi = axios.create({
 	baseURL: adminBaseURL,
 	responseType: "json",
