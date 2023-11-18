@@ -1,0 +1,50 @@
+.cd-b2-outer{
+    width: 100%;
+    background-color: #fefcf6;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    @media (max-width: 950px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    
+}
+.cd-b2-box{
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: rgb(207, 205, 205);padding: 10px;
+    padding:30px;
+    @media (max-width: 950px) {
+        width: 100%;
+      }
+}
+.cd-b2-heading-row{
+    width: 100%;
+    
+    margin: 0;
+}
+.cd-b2-heading{
+    margin-top: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.cd-b2-point-row{
+    width: 100%;
+    flex-direction: row;
+}
+.cd-b2-point-col{
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.cd-b2-img{
+    display: inline;
+}
+.cd-b2-point{
+    display: inline;
+    margin: 0;
+}

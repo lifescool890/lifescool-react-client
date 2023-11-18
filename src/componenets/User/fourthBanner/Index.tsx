@@ -1,20 +1,25 @@
 import { Row, Typography, Segmented, Card, Col } from "antd";
 import "../../font.scss";
 import "./style.scss";
-import { useState } from "react";
-import trend1 from "../../../assets/images/trend1.png" 
-import trend2 from "../../../assets/images/trend2.png" 
-import trend3 from "../../../assets/images/trend3.png" 
-import trend4 from "../../../assets/images/trend4.png" 
-import trend5 from "../../../assets/images/trend5.png" 
-import trend6 from "../../../assets/images/trend6.png" 
-import learnMore from "../../../assets/images/Button.png"
-const online = [trend1, trend2, trend3, trend4, trend5 ];
-const offline = [trend1, trend2, trend3, trend4, trend5,trend6 ];
+import { useEffect, useState } from "react";
+import learnMore from "../../../assets/images/Button.png";
+import adminApi from "../../../constants/axios";
+
 
 function Index() {
-  const[trend,setTrend] = useState(false)
-  const trending =trend?online:offline
+  const [trend, setTrend] = useState([]);
+  useEffect(() => {
+    getTrend();
+  }, []);
+
+  const getTrend = () => {
+    adminApi.get("/getTrending").then((response) => {
+      console.log("trend", response);
+      setTrend(response.data.data);
+    });
+  };
+  console.log(trend);
+
   return (
     <Row className="backgroundRow">
       <Row className="titleRow">
@@ -22,37 +27,27 @@ function Index() {
           Trending Courses
         </Typography.Title>
       </Row>
-      <Row className="switchRow">
+      {/* <Row className="switchRow">
         <Segmented
           className="switch"
           size="large"
           options={["Online", "Offline"]}
-          onChange={()=>{
-            setTrend(!trend)}}
         />
-      </Row>
+      </Row> */}
       <Row className="trendingRow">
-        {trending.map((item) => (
-          
-          <Col className="trendCardCol" xs={24} sm={24}md={8}>
-            <Card
-              className="trendCard"
-              hoverable
-              bodyStyle={{padding: "0"}}
-            >
-              <img
-                className="card-img"
-                  alt=""
-                  src={item}
-                />
-                <div className="card-desc-div">
-              <h2>Mic Drop</h2>
+        {trend.map((item:any) => (
+          <Col className="trendCardCol" xs={24} sm={24} md={8}>
+            <Card className="trendCard" hoverable bodyStyle={{ padding: "0" }}>
+              <img className="card-img" alt="" src={`https://lifescool.s3.ap-south-1.amazonaws.com/cover-images/${item.id}`} />
+              <div className="card-desc-div">
+                <h2 className="raleway">{item.courseName}</h2>
 
-              <p>Monthly kids' program fosters 21st-century skills and public speaking confidence.</p>
-              <Typography.Title level={4}>
-               
-                <img src={learnMore} alt="" />
-              </Typography.Title>
+                <p className="card-desc raleway">
+                  {item.courseDesc}
+                </p>
+                <Typography.Title level={4}>
+                  <img src={learnMore} alt="" />
+                </Typography.Title>
               </div>
             </Card>
           </Col>

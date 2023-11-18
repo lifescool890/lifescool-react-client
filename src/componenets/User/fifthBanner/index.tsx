@@ -13,16 +13,21 @@ function index() {
       <Col className="form-col" xs={24} sm={24} md={12}>
         <Form>
           <Row>
+            <Col xs={24} sm={24} md={12}>
             <Form.Item className="halfForm">
               <h2 className="form-label raleway">First Name</h2>
               <Input className="input" name="firstName" placeholder="Ex.John" />
             </Form.Item>
+            </Col>
+            <Col xs={24} sm={24} md={12}>
             <Form.Item className="halfForm">
               <h2 className="form-label raleway">Last Name</h2>
               <Input className="input" name="firstName" placeholder="Ex.Doe" />
             </Form.Item>
+            </Col>
           </Row>
           <Row>
+            <Col xs={24} sm={24} md={12}>
             <Form.Item className="halfForm">
               <h2 className="form-label raleway ">Email Address</h2>
               <Input
@@ -31,10 +36,13 @@ function index() {
                 placeholder="Ex.Hello@Email.com"
               />
             </Form.Item>
+            </Col>
+            <Col xs={24} sm={24} md={12}>
             <Form.Item className="halfForm">
               <h2 className="form-label raleway">Subject</h2>
               <Input className="input" name="firstName" placeholder="Subject" />
             </Form.Item>
+            </Col>
           </Row>
           <Row>
             <Form.Item className="fullForm">
@@ -117,10 +125,7 @@ function index() {
               <Col>
                 <h3 className="head-office raleway">Email Address</h3>
                 <p className="location-desc">
-                  1216, Second Floor, HiLITE
-                  <br /> Business Park, NH 66,
-                  <br /> Bypass, Thondayad,
-                  <br /> Kozhikode, Kerala 673014
+                  lifescool.app@gmail.com
                 </p>
               </Col>
             </Row>
@@ -133,10 +138,7 @@ function index() {
               <Col>
                 <h3 className="head-office raleway">Telephone</h3>
                 <p className="location-desc">
-                  1216, Second Floor, HiLITE
-                  <br /> Business Park, NH 66,
-                  <br /> Bypass, Thondayad,
-                  <br /> Kozhikode, Kerala 673014
+                  +91 945 945 2255
                 </p>
               </Col>
             </Row>

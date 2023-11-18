@@ -60,12 +60,14 @@ const Index: React.FC = () => {
             >
               Teach with Lifescool
             </Typography.Title>
+            <a href="https://lifescool.learnyst.com/learn/account/signin">
             <Typography.Title
               level={5}
               style={{ margin: 0, marginLeft: "40px" }}
             >
               Login
             </Typography.Title>
+            </a>
             <a href="https://lifescool.learnyst.com/learn/account/signin" target="_blank" rel="noopener noreferrer" style={{marginRight: "4%"}}>
             <Button
               shape="default"
@@ -99,12 +101,14 @@ const Index: React.FC = () => {
         >
           Teach with Lifescool
         </Typography.Title>
+        <a style={{color:"black"}} href="https://lifescool.learnyst.com/learn/account/signin">
         <Typography.Title
           level={5}
           style={{ margin: "10px", marginLeft: "auto" }}
         >
-            Login   
+            Login
           </Typography.Title>
+          </a>
         <a href="https://lifescool.learnyst.com/learn/account/signin" target="_blank" rel="noopener noreferrer" >
         <Button
           shape="default"

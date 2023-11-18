@@ -54,3 +54,12 @@ padding: 0;
 .card-desc-div{
   padding: 10px 20px 10px 20px; 
 }
+.card-desc{
+  text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    display: -webkit-box;
+  color: #596A7D;
+  
+}

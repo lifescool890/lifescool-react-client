@@ -1,0 +1,30 @@
+.cd-b4-outer{
+    width: 100%;
+    padding-left:10% ;
+    padding-right: 10%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media (max-width: 950px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+}
+.cd-b4-box{
+    width: 60%;
+    @media (max-width: 950px) {
+        width: 100%;
+      }
+}
+.cd-b4-heading{
+    margin: 0;
+}
+.cd-b4-heading-row{
+    width: 100%;
+}
+.cd-b4-answer{
+    margin: 0;
+    width: 100%;
+}
+.cd-b4-question{
+    width: 100%;
+}

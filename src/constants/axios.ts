@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/admin'
+const adminBaseURL = 'http://localhost:3000/admin'
+const userBaseURL = 'http://localhost:3000/'
 const adminApi = axios.create({
-	baseURL: baseURL,
+	baseURL: adminBaseURL,
 	responseType: "json",
 	headers: {
 		Accept: "application/json",
@@ -10,11 +11,19 @@ const adminApi = axios.create({
 	},
 }); 
 export const adminImageApi = axios.create({
-	baseURL: baseURL,
+	baseURL: adminBaseURL,
 	responseType: "json",
 	headers: {
 		Accept: "application/json",
 		"Content-Type": "multipart/form-data",
+	},
+}); 
+export const userApi=axios.create({
+	baseURL: userBaseURL,
+	responseType: "json",
+	headers: {
+		Accept: "application/json",
+		"Content-Type": "application/json",
 	},
 }); 
 

@@ -1,5 +1,5 @@
 import { Routes, BrowserRouter, Route, Navigate } from "react-router-dom";
-import {useContext } from "react";
+import { useContext } from "react";
 import "./App.css";
 import Index from "./pages/index";
 import AdminLogIn from "./pages/AdminLogin";
@@ -7,9 +7,12 @@ import CoursesTablePage from "./pages/CoursesTablePage";
 import Layout from "./componenets/admin/Layout/Index";
 import { AuthContext } from "./context/authContext";
 import AdminAddCoursePage from "./pages/AdminAddCoursePage";
+import AdminTrendingPage from "./pages/AdminTrendingPage";
+import CourseDetails from "./pages/CourseDetails";
+import AllCoursesPage from "./pages/AllCoursesPage";
 
 function App() {
-  const {isLoggedIn}= useContext(AuthContext)
+  const { isLoggedIn } = useContext(AuthContext);
   const protectedElement = (component: any) => {
     console.log(isLoggedIn);
 
@@ -27,13 +30,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/courses" element={<AllCoursesPage />} />
+          <Route path="/course-details/:id" element={<CourseDetails />} />
           <Route path="/adminLogin" element={ifLoggedIn(<AdminLogIn />)} />
-          <Route path="/admin"  element={protectedElement(<Layout />)}>
-          <Route path="courses" element={<CoursesTablePage />} />
-          <Route path="add-course" element={<AdminAddCoursePage />} />
-          <Route path="update-course/:id/:display" element={<AdminAddCoursePage />} />
-          <Route path="view-course/:id/:display" element={<AdminAddCoursePage />} />
-        </Route>
+          <Route path="/admin" element={protectedElement(<Layout />)}>
+            <Route path="courses" element={<CoursesTablePage />} />
+            <Route path="add-course" element={<AdminAddCoursePage />} />
+            <Route
+              path="update-course/:id/:display"
+              element={<AdminAddCoursePage />}
+            />
+            <Route
+              path="view-course/:id/:display"
+              element={<AdminAddCoursePage />}
+            />
+            <Route path="trending" element={<AdminTrendingPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,7 +1,6 @@
 .achivement-out {
   width: 80%;
   display: inline-flex;
-  overflow-x: scroll;
   height: 148px;
   background-color: #1c2937;
   margin-left: 10%;
@@ -10,9 +9,14 @@
   @media (max-width: 768px) {
     width: 100%;
     margin:0;
+    overflow-x: scroll;
   }
 }
 
+.achivement-background{
+  width: 100%;
+  background-color:#fefcf6 ;
+}
 .achivements {
   color: rgb(255, 115, 83);
 }
@@ -34,8 +38,9 @@
   margin-top: 40px;
 }
 .achivement-sub {
-  width: 180px;
+  width: 100%;
   text-align: center;
+  min-width: 180px;
 }
 .achivement-logo {
   padding-top: 25px;
@@ -45,6 +50,7 @@
   }
 }
 .achivement {
+  width: 100%;
   padding-left: 28px;
   display: flex;
   flex-wrap: nowrap;

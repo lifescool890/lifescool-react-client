@@ -62,9 +62,7 @@ function Index() {
         <h2 className='col-heading raleway'>
             Follow Us
           </h2>
-          <Row>
-          <p className='pointer'>Lorem ipsum dolor sit amet,<br/> consectetur adipiscing elit.</p>
-          </Row>
+         
           <Row>
           <a href=""><img className="social-media" src={whiteFb} alt="" /></a>
           <img className="social-media"src={whiteTwitter} alt="" />
@@ -73,8 +71,9 @@ function Index() {
           </Row>
         
         </Col>
-        <div className='footer-line'>
-
+        <div className='footer-line'/>
+        <div className='company-name-div'>
+        <p className='company-name'>© Lifeplug EduTech LLP </p>
         </div>
 
     </Row>

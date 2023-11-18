@@ -1,12 +1,4 @@
-import {
-  Row,
-  Typography,
-  Form,
-  Input,
-  DatePicker,
-  Upload,
-  Button,
-} from "antd";
+import { Row, Typography, Form, Input, DatePicker, Upload, Button } from "antd";
 import { useState, useEffect } from "react";
 import "../admin-addCourse/style.scss";
 import dayjs from "dayjs";
@@ -29,6 +21,8 @@ interface CourseData {
   tutorDesc: string;
   upComingEndingDate: string;
   upComingStartingDate: string;
+  tutorName:string;
+  price:string;
 }
 const normFile = (e: any) => {
   if (Array.isArray(e)) {
@@ -47,10 +41,10 @@ function index() {
   const [form] = useForm();
   const [courseData, setCourseData] = useState<CourseData>();
   const [display, setDisplay] = useState("");
-  const [disable,setDisable] = useState(false)
+  const [disable, setDisable] = useState(false);
 
   const params = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     if (params.display == "edit") {
       setDisplay("edit");
@@ -58,14 +52,14 @@ function index() {
     } else if (params.display == "view") {
       setDisplay("view");
       getOneCourse(Number(params.id));
-      setDisable(true)
-    }else{
-      setDisplay("new")
+      setDisable(true);
+    } else {
+      setDisplay("new");
     }
   }, []);
 
   const getOneCourse = (id: number) => {
-    adminApi.post("/getOneCourse", { id: id }).then((response:any) => {
+    adminApi.post("/getOneCourse", { id: id }).then((response: any) => {
       console.log("reeees", response);
       setCourseData(response.data.data);
       const dataArray = response.data.data;
@@ -225,7 +219,7 @@ function index() {
       tutorFormData.append("tutorImage", tutorImage[0].originFileObj);
     }
     if (coverImage) {
-      coverFormData.append("tutorImage", coverImage[0].originFileObj);
+      coverFormData.append("coverImage", coverImage[0].originFileObj);
     }
     //Can directly call props here
     values = {
@@ -234,29 +228,28 @@ function index() {
       faq,
     };
 
-    if (display== "edit") {
+    if (display == "edit") {
       console.log(params);
       values = {
         ...values,
-        id:params.id
-      }
-      adminApi.post("/updateCourse", values).then(() => {
-      
-      });
+        id: params.id,
+      };
+      adminApi.post("/updateCourse", values).then(() => {});
     } else if (display == "new") {
-      adminApi.post("/addCourse", values).then(() => {
-        adminImageApi.post("/addTutorImage", tutorFormData);
-        adminImageApi.post("/addReviewImage", reviwFormData);
-        adminImageApi.post("/addCoverImage", coverFormData);
-      });
-      
+      adminApi.post("/addCourse", values).then((response) => {
+        console.log("course", response);
+        let id = response.data.data.id;
+        adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
+        adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
+        adminImageApi.post(`/addCoverImage/${id}`, coverFormData);
+      }).then(()=>{
+        navigate("/admin/courses")
+    });
     }
-
-    
   };
-  const cancel=()=>{
-    navigate("/admin/courses")
-  }
+  const cancel = () => {
+    navigate("/admin/courses");
+  };
 
   return (
     <Row className="formBackground">
@@ -283,17 +276,23 @@ function index() {
           form={form}
           disabled={disable}
         >
-          <Form.Item label="Title" name="courseName" >
-            <Input name="courseName" id="title"  />
+          <Form.Item label="Title" name="courseName">
+            <Input name="courseName" id="title" />
           </Form.Item>
           <Form.Item label="Short description" name="courseDesc">
             <TextArea rows={4} name="courseDesc" />
+          </Form.Item>
+          <Form.Item label="Price" name="price">
+            <Input />
           </Form.Item>
           <Form.Item label="Promo lnk" name="promoLink">
             <Input />
           </Form.Item>
           <Form.Item label="Upcoming Date" name="upcomingDate">
             <RangePicker />
+          </Form.Item>
+          <Form.Item label="Tutor's Name" name="tutorName">
+            <Input name="tutorName" id="title" />
           </Form.Item>
           <Form.Item
             label="Tutor's images"
@@ -319,7 +318,7 @@ function index() {
             getValueFromEvent={normFileTutor}
             name="coverImages"
           >
-            <ImgCrop rotationSlider>
+            <ImgCrop rotationSlider  aspect={16/9}>
               <Upload
                 listType="picture-card"
                 fileList={coverImage}
@@ -357,7 +356,7 @@ function index() {
             getValueFromEvent={normFile}
             name="reviewImages"
           >
-            <ImgCrop rotationSlider>
+            <ImgCrop rotationSlider  aspect={16/9}>
               <Upload
                 listType="picture-card"
                 fileList={fileList}
@@ -394,8 +393,12 @@ function index() {
             <Button onClick={addFaq}>+</Button>
           </Form.Item>
           <Form.Item className="button-group">
-            <Button className="cancel-button" onClick={cancel}>Cancel</Button>
-            <Button htmlType="submit" className="submit-button">Add Course</Button>
+            <Button className="cancel-button" onClick={cancel}>
+              Cancel
+            </Button>
+            <Button htmlType="submit" className="submit-button">
+              Add Course
+            </Button>
           </Form.Item>
         </Form>
       </Row>

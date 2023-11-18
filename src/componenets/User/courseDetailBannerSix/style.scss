@@ -1,0 +1,26 @@
+.cd-b6-outer{
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 40px;
+}
+.ant-divider-horizontal.ant-divider-with-text-center::before,
+.ant-divider-horizontal.ant-divider-with-text-center::after
+{
+   border-top: 1px solid rgb(134, 134, 134);
+}
+
+.cd-b6-img-row{
+    width: 100%;
+}
+.cd-b6-review-img{
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+border-radius: 10px;
+mask: initial;
+}
+.cd-b6-img-col{
+    padding: 10px;
+}
+

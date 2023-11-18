@@ -1,6 +1,6 @@
 import { Row, Col, Form, Input, Button, Typography } from "antd";
 import "../../font.scss";
-import logo from "../../../assets/images/Logo Lockup (1).png";
+import logo from "../../../assets/images/Logo Lockup square(1).png";
 import adminApi from "../../../constants/axios";
 import "./style.scss";
 import { useState } from "react";
@@ -44,7 +44,7 @@ function Index() {
           // onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Typography.Title className="heading" level={1}>
+          <Typography.Title className="login-heading" level={1}>
             Login
           </Typography.Title>
           {error ? (

@@ -1,0 +1,23 @@
+.cd-b3-outer{
+    width: 100%;
+    padding-left:10% ;
+    padding-right: 10%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media (max-width: 950px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+}
+.cd-b3-box{
+    width: 60%;
+    @media (max-width: 950px) {
+        width: 100%;
+      }
+}
+.cd-b3-heading{
+    margin: 0;
+}
+.cd-b3-desc{
+    margin: 0;
+}

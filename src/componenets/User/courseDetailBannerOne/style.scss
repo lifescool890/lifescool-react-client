@@ -1,0 +1,54 @@
+.cd-b1-outer {
+  width: 100%;
+  background-color: #1c2937;
+  overflow: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-image: url("../../../assets/images/Group.png");
+background-size: contain;
+  background-repeat: no-repeat;
+  @media (max-width: 950px) {
+    padding-left: 20px;
+    padding-right: 5px;
+    width: 100%;
+  }
+}
+
+.cd-b1-side {
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: absolute;
+    margin-left: 50%;
+    @media (max-width: 950px) {
+        position: relative;
+        margin-left: 0;
+        padding: 0;
+      }
+}
+.cd-b1-text {
+  width: 55%;
+  margin-top: 100px;
+  padding-right: 20px;
+  margin-bottom: 100px;
+
+  @media (max-width: 950px) {
+    width: 80%;
+  }
+}
+.cd-b1-iframe {
+ width: 22vw;
+ height: 40vw;
+ border-radius: 30px;
+  @media (max-width: 950px) {
+   width: 95%;
+   height: 250px;
+   border-radius: 0;
+   padding-bottom: 10px;
+  }
+}
+.cd-b1-desc {
+  margin-top: 40px;
+  line-height: 30px;
+  color: white;
+}

@@ -1,0 +1,42 @@
+.cd-b5-outer{
+    width: 100%;
+    padding-left:10% ;
+    padding-right: 10%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media (max-width: 950px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+}
+.cd-b5-box{
+    width: 60%;
+    @media (max-width: 950px) {
+        width: 100%;
+      }
+}
+.cd-b5-heading-row{
+    width: 100%;
+}
+.cd-b5-desc-outer{
+    width: 100%;
+ 
+}
+.cd-b5-img{
+    width: 90%;
+    border-radius:100% ;
+    @media (max-width: 480px) {
+        width: 50%;
+        border-radius: 100%;
+      }
+}
+.cd-b5-tutorName{
+    margin: 10px;
+    font-weight: bold;
+    color: #FF7800;
+    text-transform: uppercase;
+}
+.cd-b5-tutor-desc{
+    margin: 0;
+    margin: 10px;
+}
