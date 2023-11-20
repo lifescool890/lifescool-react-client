@@ -1,6 +1,5 @@
 import { Col, Row, Typography } from "antd";
 import "./style.scss";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function index(props:any) {
