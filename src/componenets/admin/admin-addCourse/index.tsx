@@ -239,11 +239,14 @@ function index() {
       adminApi.post("/addCourse", values).then(async(response) => {
         console.log("course", response);
         let id = response.data.data.id;
-        await adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
-        await adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
-        await adminImageApi.post(`/addCoverImage/${id}`, coverFormData);
+         adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
+         adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
+         adminImageApi.post(`/addCoverImage/${id}`, coverFormData);
       }).then(()=>{
         navigate("/admin/courses")
+    }).catch((error)=>{
+      console.log(error);
+      
     });
     }
   };
