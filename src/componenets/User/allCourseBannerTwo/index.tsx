@@ -1,5 +1,4 @@
 import { Row, Typography, Col } from "antd";
-import testImg from "../../../assets/images/trend1.png";
 import "./style.scss";
 import { userApi } from "../../../constants/axios";
 import {useEffect, useState} from 'react'
@@ -33,7 +32,7 @@ function index() {
           <>
       <Row className="ac-b2-row" onClick={()=>goTo(item.id)}>
         <Col className="ac-b2-img-col"  md={5}>
-          <img className="ac-b2-img" src={testImg} alt="" />
+          <img className="ac-b2-img" src={`https://lifescool.s3.ap-south-1.amazonaws.com/cover-images/${item.id}`} alt="" />
         </Col>
         <Col className="ac-b2-desc-col" md={17}>
           <Typography.Title level={4} className="ac-b2-desc-title heading">

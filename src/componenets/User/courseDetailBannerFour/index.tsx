@@ -15,7 +15,7 @@ function index(props:any) {
           return(
         <Row>
           <Typography.Title level={5} className="cd-b4-question type-usage">
-            {item.question}?
+            {item.question} ?
           </Typography.Title>
           <p className="cd-b4-answer inter">
             {item.answer}

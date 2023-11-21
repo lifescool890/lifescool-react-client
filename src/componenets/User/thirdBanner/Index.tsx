@@ -8,8 +8,13 @@ import communeBg from "../../../assets/images/Rectangle 6.png"
 import creatorMartBg from "../../../assets/images/Rectangle 6 (2).png"
 import lifescoolBg from "../../../assets/images/Rectangle 6 (1).png"
 import learnMore from "../../../assets/images/Button.png"
+import { useNavigate } from "react-router-dom";
 
 function Index() {
+  const navigate = useNavigate()
+  const goTo=()=>{
+    navigate("/courses")
+  }
   return (
     <Row className="third-banner">
       <Row className="titleRow">
@@ -26,6 +31,7 @@ function Index() {
           <div className="card-image-div">
           <img className="cardImg"src={communeBg} alt="" />
           </div>
+          <a onClick={goTo}>
           <Card
               className="card"
               hoverable
@@ -35,6 +41,7 @@ function Index() {
               <img src={learnMore} alt="" />
               </Typography.Title>
             </Card>
+            </a>
         </Col>
         <Col sm={24} xs={24} md={8} className="courseCard">
         <div className="card-image-div">

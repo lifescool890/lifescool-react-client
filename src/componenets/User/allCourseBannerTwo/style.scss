@@ -39,6 +39,12 @@
 }
 .ac-b2-desc{
     width: 80%;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    display: -webkit-box;
     @media (max-width: 950px) {
         width: 100%;
     }

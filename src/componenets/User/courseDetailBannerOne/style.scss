@@ -51,4 +51,16 @@ background-size: contain;
   margin-top: 40px;
   line-height: 30px;
   color: white;
+  text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    display: -webkit-box;
+}
+.cd-b1-price-div{
+  width: 20%;
+  border: thin;
+}
+.cd-b1-price{
+  color: white;
 }
