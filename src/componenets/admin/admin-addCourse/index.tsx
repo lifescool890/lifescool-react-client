@@ -21,8 +21,8 @@ interface CourseData {
   tutorDesc: string;
   upComingEndingDate: string;
   upComingStartingDate: string;
-  tutorName:string;
-  price:string;
+  tutorName: string;
+  price: string;
 }
 const normFile = (e: any) => {
   if (Array.isArray(e)) {
@@ -61,8 +61,8 @@ function index() {
   const getOneCourse = (id: number) => {
     adminApi.post("/getOneCourse", { id: id }).then((response: any) => {
       console.log("reeees", response);
-      setCourseData(response.data.data);
-      const dataArray = response.data.data;
+      setCourseData(response.data.data.data);
+      const dataArray = response.data.data.data;
       form.setFieldsValue(dataArray);
       console.log([
         dataArray.upComingStartingDate,
@@ -236,18 +236,21 @@ function index() {
       };
       adminApi.post("/updateCourse", values).then(() => {});
     } else if (display == "new") {
-      adminApi.post("/addCourse", values).then(async(response) => {
-        console.log("course", response);
-        let id = response.data.data.id;
-         adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
-         adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
-         adminImageApi.post(`/addCoverImage/${id}`, coverFormData);
-      }).then(()=>{
-        navigate("/admin/courses")
-    }).catch((error)=>{
-      console.log(error);
-      
-    });
+      adminApi
+        .post("/addCourse", values)
+        .then(async (response) => {
+          console.log("course", response);
+          let id = response.data.data.id;
+          adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
+          adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
+          adminImageApi.post(`/addCoverImage/${id}`, coverFormData);
+        })
+        .then(() => {
+          navigate("/admin/courses");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
   const cancel = () => {
@@ -321,7 +324,7 @@ function index() {
             getValueFromEvent={normFileTutor}
             name="coverImages"
           >
-            <ImgCrop rotationSlider  aspect={16/9}>
+            <ImgCrop rotationSlider aspect={16 / 9}>
               <Upload
                 listType="picture-card"
                 fileList={coverImage}
@@ -359,7 +362,7 @@ function index() {
             getValueFromEvent={normFile}
             name="reviewImages"
           >
-            <ImgCrop rotationSlider  aspect={16/9}>
+            <ImgCrop rotationSlider aspect={16 / 9}>
               <Upload
                 listType="picture-card"
                 fileList={fileList}
