@@ -2,6 +2,7 @@ import {Form,Select,Row,Typography, Button} from 'antd'
 import adminApi from '../../../constants/axios'
 import "./style.scss"
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface courseDataType{
     id:number,
@@ -10,7 +11,9 @@ interface courseDataType{
 
 function index() {
     const [courses,setCourses] = useState<courseDataType[]>([])
+    const navigate = useNavigate()
     useEffect(() => {
+
     allCourses()
     }, [])
     
@@ -24,9 +27,42 @@ function index() {
      
     const onFinish=(values:object)=>{
         console.log(values);
-        adminApi.post("/setTrending",values)
+        console.log(coursePoints);
+        
+        adminApi.post("/setTrending",coursePoints).then(()=>{
+          navigate("/admin/trending")
+        })
         
     }
+    const pointsArr = [
+      {
+        type: "text",
+        value: "",
+      },
+    ];
+    const [coursePoints, setCoursePoints] = useState(pointsArr);
+    const addPoints = () => {
+      setCoursePoints((s: any) => {
+        return [
+          ...s,
+          {
+            type: "text",
+            value: "",
+          },
+        ];
+      });
+    };
+    const handlePoints = (key: any,value:any) => {
+      console.log("tes");
+      console.log("tes",key,value);
+      
+      const index = value.key;
+      setCoursePoints((s) => {
+        const newArr = s.slice();
+        newArr[index].value = String(value.value);
+        return newArr;
+      });
+    };
   return (
     <div className='formBackground'>
         <Row style={{ width: "100%" }}>
@@ -39,67 +75,19 @@ function index() {
         wrapperCol={{ span: 14 }}
         onFinish={onFinish}
         >
-        <Form.Item
-        label = "Trending 1"
-        name="trending1"
-        >
-          <Select>
+          <Form.Item label="Set trending" name="trendings">
+            {coursePoints.map((item, i) => {
+              return (
+                <Select className='b5-trend-select' key={item.type} onChange={(key,value)=>handlePoints(key,value)}  >
            { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
+               <Select.Option key={i}value={item.id}>{item.courseName}</Select.Option>
            ))}
           </Select>
-        </Form.Item>
-        <Form.Item
-        label = "Trending 2"
-        name="trending2"
-        >
-          <Select>
-          { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
-           ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-        label = "Trending 3"
-        name="trending3"
-        >
-          <Select>
-          { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
-           ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-        label = "Trending 4"
-        name="trending4"
-        >
-          <Select>
-          { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
-           ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-        label = "Trending 5"
-        name="trending5"
-        >
-          <Select>
-          { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
-           ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-        label = "Trending 6"
-        name="trending6"
-        >
-          <Select>
-          { courses.map(item=>(
-               <Select.Option value={item.id}>{item.courseName}</Select.Option>
-           ))}
-          </Select>
-        </Form.Item>
-        <Form.Item>
+              );
+            })}
+            <Button onClick={addPoints}>+</Button>
+          </Form.Item>
+          <Form.Item>
             <Button htmlType='submit' className='td-cancel-button'>Cancel</Button>
             <Button htmlType='submit' className='td-submit-button'>Submit</Button>
         </Form.Item>

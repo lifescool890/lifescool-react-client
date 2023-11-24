@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-const adminBaseURL = import.meta.env.VITE_ADMIN_BASE_URL
-const userBaseURL = import.meta.env.VITE_USER_BASE_URL
+const adminBaseURL = "http://localhost:3000/admin"
+const userBaseURL = "http://localhost:3000/"
 const adminApi = axios.create({
 	baseURL: adminBaseURL,
 	responseType: "json",

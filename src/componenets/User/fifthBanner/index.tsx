@@ -1,4 +1,4 @@
-import { Col, Row, Form, Input, Button } from "antd";
+import { Col, Row, Form, Input, Button ,Result,Spin} from "antd";
 import "../../font.scss"
 import "./style.scss";
 import TextArea from "antd/es/input/TextArea";
@@ -6,47 +6,71 @@ import location from "../../../assets/images/map.svg";
 import mapPin from "../../../assets/images/map-pin.svg";
 import envolope from "../../../assets/images/envelope.svg";
 import call from "../../../assets/images/phone-square.svg";
+import axios from "axios";
+import { useForm } from "antd/es/form/Form";
+import { useState } from "react";
 
 function index() {
+  const [submit,setSubmit] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [form] = useForm();
+  const onSubmit=(values:any)=>{
+    setLoading(true)
+    const formData =new FormData()
+    console.log(formData);
+    for ( var key in values ) {
+      formData.append(key, values[key]);
+  }
+    axios.post("https://script.google.com/macros/s/AKfycbyHhdykf9B377LooHF2dbsnf0lTSfiqzEIcK8LfsZAVC7xvcDDc-5bMvFOcOyeGJKmF/exec",formData).then(()=>{
+      setLoading(false)
+      setSubmit(true)
+    })
+  }
   return (
     <Row className="fifth-banner">
       <Col className="form-col" xs={24} sm={24} md={12}>
-        <Form>
+        {submit == false?
+        <Spin spinning={loading}>
+        <Form
+        form={form}
+        onFinish={onSubmit}
+        name="form"
+        >
           <Row>
             <Col xs={24} sm={24} md={12}>
-            <Form.Item className="halfForm">
-              <h2 className="form-label raleway">First Name</h2>
-              <Input className="input" name="firstName" placeholder="Ex.John" />
+            <h2 className="form-label raleway">First Name</h2>
+            <Form.Item className="halfForm" name="FirstName"
+            >
+              <Input className="input" placeholder="Ex.John" />
             </Form.Item>
             </Col>
             <Col xs={24} sm={24} md={12}>
-            <Form.Item className="halfForm">
               <h2 className="form-label raleway">Last Name</h2>
-              <Input className="input" name="firstName" placeholder="Ex.Doe" />
+            <Form.Item className="halfForm" name="LastName">
+              <Input className="input"  placeholder="Ex.Doe" />
             </Form.Item>
             </Col>
           </Row>
           <Row>
             <Col xs={24} sm={24} md={12}>
-            <Form.Item className="halfForm">
               <h2 className="form-label raleway ">Email Address</h2>
+            <Form.Item className="halfForm" name="EmailAddress">
               <Input
                 className="input"
-                name="firstName"
                 placeholder="Ex.Hello@Email.com"
               />
             </Form.Item>
             </Col>
             <Col xs={24} sm={24} md={12}>
-            <Form.Item className="halfForm">
               <h2 className="form-label raleway">Subject</h2>
-              <Input className="input" name="firstName" placeholder="Subject" />
+            <Form.Item className="halfForm" name="Subject">
+              <Input className="input"  placeholder="Subject" />
             </Form.Item>
             </Col>
           </Row>
           <Row>
-            <Form.Item className="fullForm">
               <h2 className="form-label raleway">Message</h2>
+            <Form.Item className="fullForm" name="Message">
               <TextArea
                 className="form-textArea"
                 rows={5}
@@ -56,12 +80,18 @@ function index() {
           </Row>
           <Row>
             <Form.Item className="fullForm">
-              <Button className="sendButton" shape="round">
+              <Button className="sendButton" htmlType="submit"shape="round">
                 <h4 className="sendMessage"> SEND MESSAGE</h4>
               </Button>
             </Form.Item>
           </Row>
         </Form>
+        </Spin>
+        :<Result
+        status="success"
+        title="Enquiry Successfully Submitted!"
+        className="success"
+      />}
       </Col>
       <Col className="contact-col" xs={24} sm={24} md={12}>
         <Row>

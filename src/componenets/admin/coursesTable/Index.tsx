@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Space, Table, Typography, Popconfirm } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 import { useEffect, useState } from "react";
@@ -30,9 +30,6 @@ const Index: React.FC = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button type="primary" ghost onClick={()=>{view(record.id)}}>
-            <EyeOutlined />
-          </Button>
           <Button
             type="primary"
             ghost
@@ -100,9 +97,6 @@ const Index: React.FC = () => {
       setTableData(dataSource);
     });
   };
-  const view = (id:number)=>{
-    navigate(`/admin/view-course/${id}/view`)
-  }
 
   return (
     <>

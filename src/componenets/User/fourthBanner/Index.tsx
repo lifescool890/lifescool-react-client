@@ -40,8 +40,9 @@ function Index() {
             <Card className="trendCard" hoverable bodyStyle={{ padding: "0" }}>
               <img className="card-img" alt="" src={`https://lifescool.s3.ap-south-1.amazonaws.com/cover-images/${item.id}`} />
               <div className="card-desc-div">
+                <Col className="trendCardHeadRow">
                 <h2 className="raleway">{item.courseName}</h2>
-
+                </Col>
                 <p className="card-desc raleway">
                   {item.courseDesc}
                 </p>

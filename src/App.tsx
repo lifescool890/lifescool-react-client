@@ -10,6 +10,7 @@ import AdminAddCoursePage from "./pages/AdminAddCoursePage";
 import AdminTrendingPage from "./pages/AdminTrendingPage";
 import CourseDetails from "./pages/CourseDetails";
 import AllCoursesPage from "./pages/AllCoursesPage";
+import AdminTrendingTable from "./pages/AdminTrendingTable";
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -44,7 +45,8 @@ function App() {
               path="view-course/:id/:display"
               element={<AdminAddCoursePage />}
             />
-            <Route path="trending" element={<AdminTrendingPage />} />
+            <Route path="trending" element={<AdminTrendingTable />} />
+            <Route path="setTrending" element={<AdminTrendingPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

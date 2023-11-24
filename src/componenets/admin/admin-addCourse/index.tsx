@@ -234,7 +234,9 @@ function index() {
         ...values,
         id: params.id,
       };
-      adminApi.post("/updateCourse", values).then(() => {});
+      adminApi.post("/updateCourse", values).then(() => {
+        navigate("/admin/courses");
+      });
     } else if (display == "new") {
       adminApi
         .post("/addCourse", values)
@@ -282,67 +284,169 @@ function index() {
           form={form}
           disabled={disable}
         >
-          <Form.Item label="Title" name="courseName">
+          <Form.Item
+            label="Title"
+            name="courseName"
+            rules={[
+              {
+                max: 40,
+                message: "Title should be less than 50 character",
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
             <Input name="courseName" id="title" />
           </Form.Item>
-          <Form.Item label="Short description" name="courseDesc">
+          <Form.Item
+            label="Short description"
+            name="courseDesc"
+            rules={[
+              {
+                message: "Value should be less than 50 character",
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
             <TextArea rows={4} name="courseDesc" />
           </Form.Item>
-          <Form.Item label="Price" name="price">
+          <Form.Item
+            label="Price"
+            name="price"
+            rules={[
+              {
+                required: true,
+                message: "A value must be a number ",
+                pattern: new RegExp(/^[0-9]+$/),
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
             <Input />
           </Form.Item>
-          <Form.Item label="Promo lnk" name="promoLink">
+          <Form.Item
+            label="Promo lnk"
+            name="promoLink"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             <Input />
           </Form.Item>
-          <Form.Item label="Upcoming Date" name="upcomingDate">
+          <Form.Item
+            label="Upcoming Date"
+            name="upcomingDate"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             <RangePicker />
           </Form.Item>
-          <Form.Item label="Tutor's Name" name="tutorName">
+          <Form.Item
+            label="Tutor's Name"
+            name="tutorName"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             <Input name="tutorName" id="title" />
           </Form.Item>
-          <Form.Item
-            label="Tutor's images"
-            valuePropName="tutorsImage"
-            getValueFromEvent={normFileTutor}
-            name="tutorsImages"
-          >
-            <ImgCrop rotationSlider>
-              <Upload
-                listType="picture-card"
-                fileList={tutorImage}
-                onChange={onTutorImageChange}
-                onPreview={onPreview}
-                maxCount={1}
+
+          {display == "edit" ? (
+            " "
+          ) : (
+            <>
+              {" "}
+              <Form.Item
+                label="Tutor's images"
+                valuePropName="tutorsImage"
+                getValueFromEvent={normFileTutor}
+                name="tutorsImages"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
               >
-                {fileList.length < 5 && "+ Upload"}
-              </Upload>
-            </ImgCrop>
-          </Form.Item>
-          <Form.Item
-            label="Cover images"
-            valuePropName="coverImage"
-            getValueFromEvent={normFileTutor}
-            name="coverImages"
-          >
-            <ImgCrop rotationSlider aspect={16 / 9}>
-              <Upload
-                listType="picture-card"
-                fileList={coverImage}
-                onChange={onCoverImageChange}
-                onPreview={onPreview}
-                maxCount={1}
+                <ImgCrop rotationSlider>
+                  <Upload
+                    listType="picture-card"
+                    fileList={tutorImage}
+                    onChange={onTutorImageChange}
+                    onPreview={onPreview}
+                    maxCount={1}
+                  >
+                    {fileList.length < 5 && "+ Upload"}
+                  </Upload>
+                </ImgCrop>
+              </Form.Item>
+              <Form.Item
+                label="Cover images"
+                valuePropName="coverImage"
+                getValueFromEvent={normFileTutor}
+                name="coverImages"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
               >
-                {fileList.length < 5 && "+ Upload"}
-              </Upload>
-            </ImgCrop>
-          </Form.Item>
-          <Form.Item label="Tutor's description" name="tutorDesc">
+                <ImgCrop rotationSlider aspect={16 / 9}>
+                  <Upload
+                    listType="picture-card"
+                    fileList={coverImage}
+                    onChange={onCoverImageChange}
+                    onPreview={onPreview}
+                    maxCount={1}
+                  >
+                    {fileList.length < 5 && "+ Upload"}
+                  </Upload>
+                </ImgCrop>
+              </Form.Item>
+            </>
+          )}
+          <Form.Item
+            label="Tutor's description"
+            name="tutorDesc"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             <TextArea rows={4} />
           </Form.Item>
-          <Form.Item label="Course Overview" name="courseOverView">
+          <Form.Item
+            label="Course Overview"
+            name="courseOverView"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             <TextArea rows={8} />
           </Form.Item>
-          <Form.Item label="what you learn" name="coursePoints">
+          <Form.Item
+            label="what you learn"
+            name="coursePoints"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
             {coursePoints.map((item, i) => {
               return (
                 <Input
@@ -356,24 +460,41 @@ function index() {
             })}
             <Button onClick={addPoints}>+</Button>
           </Form.Item>
+          {display == "edit" ? (
+            ""
+          ) : (
+            <Form.Item
+              label="Review images"
+              valuePropName="fileList"
+              getValueFromEvent={normFile}
+              name="reviewImages"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <ImgCrop rotationSlider aspect={16 / 9}>
+                <Upload
+                  listType="picture-card"
+                  fileList={fileList}
+                  onChange={onChange}
+                  onPreview={onPreview}
+                >
+                  {fileList.length < 5 && "+ Upload"}
+                </Upload>
+              </ImgCrop>
+            </Form.Item>
+          )}
           <Form.Item
-            label="Review images"
-            valuePropName="fileList"
-            getValueFromEvent={normFile}
-            name="reviewImages"
+            label="FAQ"
+            name="faq"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
           >
-            <ImgCrop rotationSlider aspect={16 / 9}>
-              <Upload
-                listType="picture-card"
-                fileList={fileList}
-                onChange={onChange}
-                onPreview={onPreview}
-              >
-                {fileList.length < 5 && "+ Upload"}
-              </Upload>
-            </ImgCrop>
-          </Form.Item>
-          <Form.Item label="FAQ" name="faq">
             {faq.map((item, i) => {
               return (
                 <>

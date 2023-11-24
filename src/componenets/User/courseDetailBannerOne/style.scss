@@ -60,3 +60,35 @@ background-size: contain;
 .cd-b1-price{
   color: white;
 }
+
+.cd-b1-form-Row{
+  width: 100%;
+  border-radius: 30px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  @media (max-width: 950px) {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+}
+.course-form-label {
+  width: 100%;
+  margin: 8px;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+.course-halfForm {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.course-input {
+  border-radius: 30px;
+  height: 40px;
+  padding-left: 20px;
+}
+.course-form{
+  width: 100%;
+}
