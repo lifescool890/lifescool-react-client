@@ -524,7 +524,7 @@ function index() {
               Cancel
             </Button>
             <Button htmlType="submit" className="submit-button">
-              Add Course
+             {display == "edit"?"edit": "Add"} Course
             </Button>
           </Form.Item>
         </Form>

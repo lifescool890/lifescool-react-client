@@ -68,7 +68,13 @@ function index(props: any) {
             <Form onFinish={onFinish} name="form" className="course-form">
               <Row>
                 <h4 className="course-form-label raleway">First Name</h4>
-                <Form.Item className="course-halfForm" name="FirstName">
+                <Form.Item className="course-halfForm" name="FirstName"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                >
                   <Input className="course-input" placeholder="Ex.John" />
                 </Form.Item>
               </Row>
@@ -80,7 +86,15 @@ function index(props: any) {
               </Row>
               <Row>
                 <h4 className="course-form-label raleway">Mobile Number</h4>
-                <Form.Item className="course-halfForm" name="MobileNumber">
+                <Form.Item className="course-halfForm" name="MobileNumber"
+                rules={[
+                  {
+                    required: true,
+                    pattern:  new RegExp(/^[0-9]+$/),
+                    message:"Invalid mobile number"
+                  },
+                ]}
+                >
                   <Input className="course-input" placeholder="+91-" />
                 </Form.Item>
               </Row>

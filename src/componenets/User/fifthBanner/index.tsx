@@ -40,13 +40,24 @@ function index() {
             <Col xs={24} sm={24} md={12}>
             <h2 className="form-label raleway">First Name</h2>
             <Form.Item className="halfForm" name="FirstName"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
             >
               <Input className="input" placeholder="Ex.John" />
             </Form.Item>
             </Col>
             <Col xs={24} sm={24} md={12}>
               <h2 className="form-label raleway">Last Name</h2>
-            <Form.Item className="halfForm" name="LastName">
+            <Form.Item className="halfForm" name="LastName"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            >
               <Input className="input"  placeholder="Ex.Doe" />
             </Form.Item>
             </Col>
@@ -54,7 +65,16 @@ function index() {
           <Row>
             <Col xs={24} sm={24} md={12}>
               <h2 className="form-label raleway ">Email Address</h2>
-            <Form.Item className="halfForm" name="EmailAddress">
+            <Form.Item className="halfForm" name="EmailAddress"
+            rules={[
+              {
+                required: true,
+                pattern: new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"),
+                message:
+                    'Enter a valid email address!',
+            },
+            ]}
+            >
               <Input
                 className="input"
                 placeholder="Ex.Hello@Email.com"
@@ -63,14 +83,21 @@ function index() {
             </Col>
             <Col xs={24} sm={24} md={12}>
               <h2 className="form-label raleway">Subject</h2>
-            <Form.Item className="halfForm" name="Subject">
+            <Form.Item className="halfForm" name="Subject"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            >
               <Input className="input"  placeholder="Subject" />
             </Form.Item>
             </Col>
           </Row>
           <Row>
               <h2 className="form-label raleway">Message</h2>
-            <Form.Item className="fullForm" name="Message">
+            <Form.Item className="fullForm" name="Message"
+            >
               <TextArea
                 className="form-textArea"
                 rows={5}
