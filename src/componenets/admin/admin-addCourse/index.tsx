@@ -304,9 +304,6 @@ function index() {
             name="courseDesc"
             rules={[
               {
-                message: "Value should be less than 50 character",
-              },
-              {
                 required: true,
               },
             ]}
