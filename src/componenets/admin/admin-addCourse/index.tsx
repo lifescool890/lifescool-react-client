@@ -370,11 +370,7 @@ function index() {
                 valuePropName="tutorsImage"
                 getValueFromEvent={normFileTutor}
                 name="tutorsImages"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
+               
               >
                 <ImgCrop rotationSlider>
                   <Upload
@@ -393,11 +389,7 @@ function index() {
                 valuePropName="coverImage"
                 getValueFromEvent={normFileTutor}
                 name="coverImages"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
+                
               >
                 <ImgCrop rotationSlider aspect={16 / 9}>
                   <Upload
@@ -438,11 +430,7 @@ function index() {
           <Form.Item
             label="what you learn"
             name="coursePoints"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
+            
           >
             {coursePoints.map((item, i) => {
               return (
@@ -465,11 +453,7 @@ function index() {
               valuePropName="fileList"
               getValueFromEvent={normFile}
               name="reviewImages"
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
+             
             >
               <ImgCrop rotationSlider aspect={16 / 9}>
                 <Upload
@@ -486,11 +470,7 @@ function index() {
           <Form.Item
             label="FAQ"
             name="faq"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
+            
           >
             {faq.map((item, i) => {
               return (
