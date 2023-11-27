@@ -9,13 +9,24 @@ import whitePintrest from "../../../assets/images/pinterest.png"
 import envelope from "../../../assets/images/envelope.svg"
 import call from "../../../assets/images/phone-square.svg"
 import rightArrow from "../../../assets/images/caret-right.svg"
+import {  useNavigate } from 'react-router-dom'
 
 function Index() {
+  const navigate = useNavigate()
+  const goToCommune=()=>{
+    navigate("/courses")
+  }
+  const goToCreator=()=>{
+    window.location.href='https://creatormart.lifescool.app/'
+  }
+  const goToHome=()=>{
+    navigate("/")
+  }
   return (
     <Row className='footerRow'>
         <Col className='vertical-col' xs={24} sm={24} md={6}>
           <img src={whiteLogo} alt="" className='footer-logo' />
-          <p className='ls-desc'>Lorem ipsum dolor sit amet,<br/>consectetur adipiscing elit.</p>
+          <p className='ls-desc'>Explore your creativity with creators led ,<br/> community driven, creative upskilling classes</p>
           <Row>
 
           <img className='envelope-img' src={envelope} alt="" />
@@ -31,7 +42,7 @@ function Index() {
           <h2 className='col-heading raleway'>
             Quick Links
           </h2>
-          <Row>
+          <Row className='footer-row' onClick={goToHome}>
           <img src={rightArrow} alt="" /><p className='pointer'>Home</p>
           </Row>
           <Row>
@@ -48,10 +59,10 @@ function Index() {
         <h2 className='col-heading raleway'>
             Usefull Links
           </h2>
-          <Row>
+          <Row className='footer-row' onClick={goToCommune}>
           <img src={rightArrow} alt="" /><p className='pointer'>Lifescool Commune</p>
           </Row>
-          <Row>
+          <Row className='footer-row' onClick={goToCreator}>
           <img src={rightArrow} alt="" /><p className='pointer'>Creatormart</p>
           </Row>
           <Row>

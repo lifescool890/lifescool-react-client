@@ -8,11 +8,14 @@ import {
 import logo from "../../../assets/images/Logo Lockup (1) rectangle.png";
 import sandwich from "../../../assets/images/icons8-menu.svg";
 import { useMediaQuery } from "usehooks-ts";
+import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
 
 const Index: React.FC = () => {
   const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate()
   const style = {
     logo: {
       width: "180px",
@@ -30,6 +33,9 @@ const Index: React.FC = () => {
     setOpen(false);
   };
 
+  const goToHome=()=>{
+    navigate("/")
+  }
 
 
   return (
@@ -44,7 +50,7 @@ const Index: React.FC = () => {
           width: '100%',
         }}
       >
-        <img className="logo" style={style.logo} src={logo} />
+        <img className="logo" onClick={goToHome} style={style.logo} src={logo} />
         {matches ? (
           <img
             style={{ width: "30px", marginLeft: "auto" }}
