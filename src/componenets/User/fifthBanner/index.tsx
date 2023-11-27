@@ -133,9 +133,7 @@ function index() {
         <Row>
           <Col>
           <p className="contact-desc">
-            hdjsfklshjdfkldfjkldsjfklsjdflksjdflksjdflksjdlkfjslkdfjslkdfjlskdfjklsdjflksjdf
-            <br />
-            jfglkjdflkgjdflkj
+          Feel free to reach out to our dedicated team of experts for<br/> any assistance or inquiries you may have.
           </p>
           </Col>
         </Row>
