@@ -26,7 +26,7 @@ function index(props: any) {
         <Col className="cd-b1-text" xs={24} sm={24} md={14}>
           <h1 className="cd-b1-heading type-usage">{props.data.courseName}</h1>
           <p className="cd-b1-desc raleway">{props.data.courseDesc}</p>
-          <h2 className="type-usage">
+          <h2 className="inter" style={{color:"white"}}>
             {new Date(props.data.upComingStartingDate)
               .toDateString()
               .split(" ")
