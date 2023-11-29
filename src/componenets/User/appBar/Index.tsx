@@ -60,12 +60,12 @@ const Index: React.FC = () => {
           />
         ) : (
           <>
-            <Typography.Title
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSes7Dtg3lKAmgbdQ8avHWNKL-6wjGD2y-ZZJe0wZgEZAVU6ZA/viewform"  style={{ margin: 0, marginLeft: "auto" }}><Typography.Title
               level={5}
               style={{ margin: 0, marginLeft: "auto" }}
             >
               Teach with Lifescool
-            </Typography.Title>
+            </Typography.Title></a>
             <a href="https://lifescool.learnyst.com/learn/account/signin">
             <Typography.Title
               level={5}
