@@ -22,20 +22,28 @@ function Index() {
   const goToHome=()=>{
     navigate("/")
   }
+  const goToEco=()=>{
+    navigate("/")
+    window.scroll(2,930)
+  }
+  const goToContact=()=>{
+    navigate("/")
+    window.scroll(2,2300)
+  }
   return (
     <Row className='footerRow'>
         <Col className='vertical-col' xs={24} sm={24} md={6}>
           <img src={whiteLogo} alt="" className='footer-logo' />
-          <p className='ls-desc'>Explore your creativity with creators led ,<br/> community driven, creative upskilling classes</p>
+          <p className='ls-desc'>Explore your creativity with creators led ,<br/> community driven, creative upskilling classes.</p>
           <Row>
 
           <img className='envelope-img' src={envelope} alt="" />
-          <p className='email-id'>Hello@Email.com</p>
+          <p className='email-id'>lifescool.app@gmail.com</p>
           </Row>
           <Row>
 
           <img className='envelope-img' src={call} alt="" />
-          <p className='email-id'>+91 123 456 789</p>
+          <p className='email-id'>+91 945 945 2255</p>
           </Row>
         </Col>
         <Col className='vertical-col'  xs={24} sm={24} md={6}>
@@ -45,13 +53,13 @@ function Index() {
           <Row className='footer-row' onClick={goToHome}>
           <img src={rightArrow} alt="" /><p className='pointer'>Home</p>
           </Row>
-          <Row>
+          <Row onClick={goToEco}>
           <img src={rightArrow} alt="" /><p className='pointer'>Lifescool Ecosystem</p>
           </Row>
           <Row>
           <img src={rightArrow} alt="" /><p className='pointer'>Courses</p>
           </Row>
-          <Row>
+          <Row onClick={goToContact}>
           <img src={rightArrow} alt="" /><p className='pointer'>Contact</p>
           </Row>
         </Col>
