@@ -101,12 +101,14 @@ const Index: React.FC = () => {
         onClose={onClose}
         open={open}
       >
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSes7Dtg3lKAmgbdQ8avHWNKL-6wjGD2y-ZZJe0wZgEZAVU6ZA/viewform"  >
         <Typography.Title
           level={5}
           style={{ margin: "10px", marginLeft: "auto" }}
         >
           Teach with Lifescool
         </Typography.Title>
+        </a>
         <a style={{color:"black"}} href="https://lifescool.learnyst.com/learn/account/signin">
         <Typography.Title
           level={5}
