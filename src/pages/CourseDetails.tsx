@@ -21,6 +21,7 @@ function CourseDetails() {
     console.log("hoo");
     setLoading(true);
     getData(Number(params.id));
+    window.scrollTo(0, 0);
   }, []);
 
   console.log("cd", courseData);
