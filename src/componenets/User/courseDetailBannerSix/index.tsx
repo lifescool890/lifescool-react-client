@@ -2,8 +2,8 @@ import "./style.scss";
 import { Divider, Row, Typography, Image, Col } from "antd";
 
 function index(props: any) {
-    let imageArray = props.images
-    
+  let imageArray = props.images;
+
   return (
     <>
       <Row className="cd-b6-outer">
@@ -13,20 +13,15 @@ function index(props: any) {
           </Typography.Title>
         </Divider>
         <Row className="cd-b6-img-row">
-            {imageArray?.map((item:any)=>{
-              console.log(item);
-              
-                return(<>
-                    <Col xs={24} sm={24} md={8} className="cd-b6-img-col">
-            <Image
-            className="cd-b6-review-img"
-            src={item}
-            />
-          </Col>
-            </>
-                )
-            })}
-          
+          {imageArray?.map((item: any) => {
+            return (
+              <>
+                <Col xs={24} sm={24} md={8} className="cd-b6-img-col">
+                  <Image className="cd-b6-review-img" src={item} />
+                </Col>
+              </>
+            );
+          })}
         </Row>
       </Row>
     </>

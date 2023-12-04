@@ -18,22 +18,18 @@ function CourseDetails() {
   const [loading, setLoading] = useState(false);
   const params = useParams();
   useEffect(() => {
-    console.log("hoo");
     setLoading(true);
     getData(Number(params.id));
     window.scrollTo(0, 0);
   }, []);
 
-  console.log("cd", courseData);
 
   const getData = async (id: number) => {
-    console.log("oooohhhaaa");
 
     await userApi.post("/getOneCourse", { id: id }).then((response) => {
       setCourseData(response.data.data.data);
       setCourseImages(response.data.data.images);
       setLoading(false);
-      console.log("res", response.data.data);
     });
   };
 

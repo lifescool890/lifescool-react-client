@@ -44,7 +44,9 @@ const Index: React.FC = () => {
             description="Are you sure to delete this course?"
             okText="Yes"
             cancelText="No"
-            onConfirm={()=>{deleteCourse(record.id)}}
+            onConfirm={() => {
+              deleteCourse(record.id);
+            }}
           >
             <Button type="primary" danger ghost>
               <DeleteOutlined />
@@ -55,25 +57,19 @@ const Index: React.FC = () => {
     },
   ];
   const [tableData, setTableData] = useState<DataType[]>([]);
-  const [reload,setReload]= useState(false)
+  const [reload, setReload] = useState(false);
   const navigate = useNavigate();
 
   const goToEdit = (id: number) => {
-    console.log("yohoooo");
-
-    console.log(id);
-
     navigate(`/admin/update-course/${id}/edit`);
   };
-  const deleteCourse = async(id:number) => {
-    const value ={
-      id:id
-    }
-    await adminApi.post("/deleteCourse",value).then((response:any)=>{
-      console.log("delete",response);
-      setReload(!reload)
-      
-    })
+  const deleteCourse = async (id: number) => {
+    const value = {
+      id: id,
+    };
+    await adminApi.post("/deleteCourse", value).then(() => {
+      setReload(!reload);
+    });
   };
   useEffect(() => {
     allCourses();
@@ -82,11 +78,8 @@ const Index: React.FC = () => {
     navigate("/admin/add-course");
   };
   let allCourses = async () => {
-    await adminApi.get("/getAllCourses").then((response:any) => {
-      console.log("resp", response.data.data);
+    await adminApi.get("/getAllCourses").then((response: any) => {
       let data = response.data;
-
-      console.log("respppp", data.data);
       let arrayData = data.data;
       const dataSource = arrayData.map((item: any, index: number) => ({
         key: index,

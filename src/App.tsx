@@ -15,14 +15,10 @@ import AdminTrendingTable from "./pages/AdminTrendingTable";
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
   const protectedElement = (component: any) => {
-    console.log(isLoggedIn);
-
     if (!isLoggedIn) return <Navigate to="/adminLogin" replace />;
     return component;
   };
   const ifLoggedIn = (component: any) => {
-    console.log("2");
-    console.log("isloggedin=", isLoggedIn);
     if (isLoggedIn) return <Navigate to="/admin/courses" replace />;
     return component;
   };

@@ -17,7 +17,6 @@ function index() {
   const onSubmit=(values:any)=>{
     setLoading(true)
     const formData =new FormData()
-    console.log(formData);
     for ( var key in values ) {
       formData.append(key, values[key]);
   }

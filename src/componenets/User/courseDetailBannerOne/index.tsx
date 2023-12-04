@@ -10,11 +10,9 @@ function index(props: any) {
     setLoading(true)
     const courseData =new FormData()
     values.CourseName = props.data.courseName
-    console.log(values);
     for ( var key in values ) {
       courseData.append(key, values[key]);
     }
-    console.log(props.data.courseName);
     axios.post("https://script.google.com/macros/s/AKfycbzJ4pbCVkwDZ00d3h6Gs8vzWC1N7Z8O2BWJGG4BhH1EqoH0PxYzPceWkJH_ZY0N0HHK/exec",courseData).then(()=>{
       setLoading(false)
       setSubmit(true)

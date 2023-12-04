@@ -8,46 +8,39 @@ import { useNavigate } from "react-router-dom";
 function index() {
   const [trendData, setTrendData] = useState<Array<CourseData>>();
 
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     getData();
   }, []);
 
-  const getData =async () => {
+  const getData = async () => {
     await adminApi.get("/getTrending").then((response) => {
-      console.log("trend", response);
       setTrendData(response.data.data);
     });
   };
-
-  console.log("tdata", trendData);
   const item = trendData?.map((item, i) => {
     return {
-      key:` ${i}`,
+      key: ` ${i}`,
       trends: `Trending`,
       course: `${item.courseName}`,
     };
   });
 
-
-  
   const columns = [
     {
-      title: 'Trends',
-      dataIndex: 'trends',
-      key: 'trends',
+      title: "Trends",
+      dataIndex: "trends",
+      key: "trends",
     },
     {
-      title: 'Course',
-      dataIndex: 'course',
-      key: 'course',
+      title: "Course",
+      dataIndex: "course",
+      key: "course",
     },
-   
   ];
-  console.log(item);
-  const goTo=()=>{
-    navigate("/admin/setTrending")
-  }
+  const goTo = () => {
+    navigate("/admin/setTrending");
+  };
 
   return (
     <Row className="formBackground fb-outer">
@@ -55,10 +48,9 @@ function index() {
         <Typography.Title level={1}>Trending</Typography.Title>
       </Row>
       <Row className="tr-button-row">
-
-      <Button className="trendCreateButton" onClick={goTo}>
-        Update Tending
-      </Button>
+        <Button className="trendCreateButton" onClick={goTo}>
+          Update Tending
+        </Button>
       </Row>
       <Table className="treand-table" dataSource={item} columns={columns} />
     </Row>

@@ -60,14 +60,9 @@ function index() {
 
   const getOneCourse = (id: number) => {
     adminApi.post("/getOneCourse", { id: id }).then((response: any) => {
-      console.log("reeees", response);
       setCourseData(response.data.data.data);
       const dataArray = response.data.data.data;
       form.setFieldsValue(dataArray);
-      console.log([
-        dataArray.upComingStartingDate,
-        dataArray.upComingEndingDate,
-      ]);
       form.setFieldValue("upcomingDate", [
         dayjs(dataArray.upComingStartingDate),
         dayjs(dataArray.upComingEndingDate),
@@ -76,9 +71,6 @@ function index() {
       setCoursePoints(dataArray.coursePoints);
     });
   };
-
-  console.log("courseeee", courseData?.courseName);
-
   const pointsArr = [
     {
       type: "text",
@@ -156,28 +148,16 @@ function index() {
   const [coverImage, setCoverImage] = useState<UploadFile[]>();
 
   const onChange: UploadProps["onChange"] = ({ fileList: newFileList }) => {
-    console.log("filelis");
-
-    console.log(fileList);
-
     setFileList(newFileList);
   };
   const onTutorImageChange: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {
-    console.log("tut");
-
-    console.log(tutorImage);
-
     setTutorImage(newFileList);
   };
   const onCoverImageChange: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {
-    console.log("tut");
-
-    console.log(coverImage);
-
     setCoverImage(newFileList);
   };
 
@@ -196,22 +176,13 @@ function index() {
     imgWindow?.document.write(image.outerHTML);
   };
   const onFinish = (values: object) => {
-    console.log(fileList, tutorImage);
     let tutorFormData: any = new FormData();
     let coverFormData: any = new FormData();
     let reviwFormData: any = new FormData();
     if (fileList) {
-      console.log("fileList");
-
-      console.log(fileList);
-
       const data = fileList;
 
       data.forEach((file) => {
-        console.log("file");
-
-        console.log(file);
-
         reviwFormData.append(`images`, file.originFileObj);
       });
     }
@@ -229,7 +200,6 @@ function index() {
     };
 
     if (display == "edit") {
-      console.log(params);
       values = {
         ...values,
         id: params.id,
@@ -241,7 +211,6 @@ function index() {
       adminApi
         .post("/addCourse", values)
         .then(async (response) => {
-          console.log("course", response);
           let id = response.data.data.id;
           adminImageApi.post(`/addTutorImage/${id}`, tutorFormData);
           adminImageApi.post(`/addReviewImage/${id}`, reviwFormData);
@@ -370,7 +339,6 @@ function index() {
                 valuePropName="tutorsImage"
                 getValueFromEvent={normFileTutor}
                 name="tutorsImages"
-               
               >
                 <ImgCrop rotationSlider>
                   <Upload
@@ -389,7 +357,6 @@ function index() {
                 valuePropName="coverImage"
                 getValueFromEvent={normFileTutor}
                 name="coverImages"
-                
               >
                 <ImgCrop rotationSlider aspect={16 / 9}>
                   <Upload
@@ -427,11 +394,7 @@ function index() {
           >
             <TextArea rows={8} />
           </Form.Item>
-          <Form.Item
-            label="what you learn"
-            name="coursePoints"
-            
-          >
+          <Form.Item label="what you learn" name="coursePoints">
             {coursePoints.map((item, i) => {
               return (
                 <Input
@@ -453,7 +416,6 @@ function index() {
               valuePropName="fileList"
               getValueFromEvent={normFile}
               name="reviewImages"
-             
             >
               <ImgCrop rotationSlider aspect={16 / 9}>
                 <Upload
@@ -467,11 +429,7 @@ function index() {
               </ImgCrop>
             </Form.Item>
           )}
-          <Form.Item
-            label="FAQ"
-            name="faq"
-            
-          >
+          <Form.Item label="FAQ" name="faq">
             {faq.map((item, i) => {
               return (
                 <>
@@ -501,7 +459,7 @@ function index() {
               Cancel
             </Button>
             <Button htmlType="submit" className="submit-button">
-             {display == "edit"?"edit": "Add"} Course
+              {display == "edit" ? "edit" : "Add"} Course
             </Button>
           </Form.Item>
         </Form>

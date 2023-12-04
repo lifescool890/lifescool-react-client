@@ -11,13 +11,10 @@ type FieldType = {
 };
 
 function Index() {
-  console.log("login rendrede");
-  
   const [error, setError] = useState(false);
 
   const onFinish = (values: any) => {
-    console.log("Success:", values);
-    adminApi.post("/login", values).then((response:any) => {
+    adminApi.post("/login", values).then((response: any) => {
       const auth: string = response.data.authentication;
       const authToken: string = response.data.authToken;
       if (auth) {
@@ -59,7 +56,7 @@ function Index() {
             name="username"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
-            <Input className="logInInput" placeholder="User Name"/>
+            <Input className="logInInput" placeholder="User Name" />
           </Form.Item>
 
           <Form.Item<FieldType>
@@ -67,7 +64,7 @@ function Index() {
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input.Password className="logInInput"  placeholder="Password"/>
+            <Input.Password className="logInInput" placeholder="Password" />
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

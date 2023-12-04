@@ -3,7 +3,6 @@ import "./style.scss";
 import tick from "../../../assets/images/Tick Square 1.png";
 
 function index(props:any) {
-  console.log("propssii",props);
   
   return (
     <Row className="cd-b2-outer">
