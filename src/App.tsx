@@ -11,6 +11,9 @@ import AdminTrendingPage from "./pages/AdminTrendingPage";
 import CourseDetails from "./pages/CourseDetails";
 import AllCoursesPage from "./pages/AllCoursesPage";
 import AdminTrendingTable from "./pages/AdminTrendingTable";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import RefundPolicyPage from "./pages/RefundPolicyPage";
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -29,6 +32,9 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/courses" element={<AllCoursesPage />} />
           <Route path="/course-details/:id" element={<CourseDetails />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage/>} />
+          <Route path="/refund-policy" element={<RefundPolicyPage/>} />
           <Route path="/adminLogin" element={ifLoggedIn(<AdminLogIn />)} />
           <Route path="/admin" element={protectedElement(<Layout />)}>
             <Route path="courses" element={<CoursesTablePage />} />

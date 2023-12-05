@@ -16,6 +16,18 @@ function Index() {
   const goToCommune=()=>{
     navigate("/courses")
   }
+  const goToTAndC=()=>{
+    navigate("/terms-and-conditions")
+    window.scroll(0,0)
+  }
+  const goToPrivacy=()=>{
+    navigate("/privacy-policy")
+    window.scroll(0,0)
+  }
+  const goToRefund=()=>{
+    navigate("/refund-policy")
+    window.scroll(0,0)
+  }
   const goToCreator=()=>{
     window.location.href='https://creatormart.lifescool.app/'
   }
@@ -53,13 +65,10 @@ function Index() {
           <Row className='footer-row' onClick={goToHome}>
           <img src={rightArrow} alt="" /><p className='pointer'>Home</p>
           </Row>
-          <Row onClick={goToEco}>
+          <Row className='footer-row'onClick={goToEco}>
           <img src={rightArrow} alt="" /><p className='pointer'>Lifescool Ecosystem</p>
           </Row>
-          <Row>
-          <img src={rightArrow} alt="" /><p className='pointer'>Courses</p>
-          </Row>
-          <Row onClick={goToContact}>
+          <Row className='footer-row' onClick={goToContact}>
           <img src={rightArrow} alt="" /><p className='pointer'>Contact</p>
           </Row>
         </Col>
@@ -73,8 +82,14 @@ function Index() {
           <Row className='footer-row' onClick={goToCreator}>
           <img src={rightArrow} alt="" /><p className='pointer'>Creatormart</p>
           </Row>
-          <Row>
+          <Row className='footer-row'onClick={goToTAndC}>
           <img src={rightArrow} alt="" /><p className='pointer'>Terms & Conditions</p>
+          </Row>
+          <Row className='footer-row'onClick={goToPrivacy}>
+          <img src={rightArrow} alt="" /><p className='pointer'>Privacy Policy</p>
+          </Row>
+          <Row className='footer-row' onClick={goToRefund}>
+          <img src={rightArrow} alt="" /><p className='pointer'>Refund Policy</p>
           </Row>
         </Col>
         <Col className='vertical-col'  xs={24} sm={24} md={6}>
