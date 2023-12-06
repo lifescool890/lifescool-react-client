@@ -22,7 +22,7 @@ function index() {
     });
   };
 
-  const onFinish = (values: object) => {
+  const onFinish = () => {
     adminApi.post("/setTrending", coursePoints).then(() => {
       navigate("/admin/trending");
     });
@@ -46,6 +46,7 @@ function index() {
     });
   };
   const handlePoints = (key: any, value: any) => {
+    console.log(key);
     const index = value.key;
     setCoursePoints((s) => {
       const newArr = s.slice();

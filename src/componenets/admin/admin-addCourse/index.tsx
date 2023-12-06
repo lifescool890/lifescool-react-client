@@ -11,19 +11,19 @@ import { useForm } from "antd/es/form/Form";
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
-interface CourseData {
-  courseName: string;
-  courseDesc: string;
-  courseOverView: string;
-  coursePoints: string[];
-  faq: string[];
-  promoLink: string;
-  tutorDesc: string;
-  upComingEndingDate: string;
-  upComingStartingDate: string;
-  tutorName: string;
-  price: string;
-}
+// interface CourseData {
+//   courseName: string;
+//   courseDesc: string;
+//   courseOverView: string;
+//   coursePoints: string[];
+//   faq: string[];
+//   promoLink: string;
+//   tutorDesc: string;
+//   upComingEndingDate: string;
+//   upComingStartingDate: string;
+//   tutorName: string;
+//   price: string;
+// }
 const normFile = (e: any) => {
   if (Array.isArray(e)) {
     return e;
@@ -39,7 +39,7 @@ const normFileTutor = (e: any) => {
 
 function index() {
   const [form] = useForm();
-  const [courseData, setCourseData] = useState<CourseData>();
+  //const [courseData, setCourseData] = useState<CourseData>();
   const [display, setDisplay] = useState("");
   const [disable, setDisable] = useState(false);
 
@@ -60,7 +60,6 @@ function index() {
 
   const getOneCourse = (id: number) => {
     adminApi.post("/getOneCourse", { id: id }).then((response: any) => {
-      setCourseData(response.data.data.data);
       const dataArray = response.data.data.data;
       form.setFieldsValue(dataArray);
       form.setFieldValue("upcomingDate", [
