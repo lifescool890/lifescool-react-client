@@ -14,6 +14,7 @@ function Index() {
   const navigate = useNavigate()
   const goTo=()=>{
     navigate("/courses")
+    window.scroll(0,0)
   }
   return (
     <Row className="third-banner">
