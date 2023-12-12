@@ -22,13 +22,17 @@ function Index() {
   const goTo = (id: any) => {
     navigate(`/course-details/${id}`);
   };
+console.log(trend);
 
   return (
     <Row className="backgroundRow">
       <Row className="titleRow">
+        {trend[0]?
         <Typography.Title className="heading" level={1}>
           Trending Courses
         </Typography.Title>
+        :""
+        }
       </Row>
       {/* <Row className="switchRow">
         <Segmented
