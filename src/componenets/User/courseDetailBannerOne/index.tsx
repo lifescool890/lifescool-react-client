@@ -1,22 +1,27 @@
-import { Row, Col, Typography, Form, Input, Button,Result, Spin } from "antd";
-import "./style.scss"
+import { Row, Col, Typography, Form, Input, Button, Result, Spin } from "antd";
+import "./style.scss";
 import { useState } from "react";
 import axios from "axios";
 
 function index(props: any) {
-  const [submit,setSubmit] = useState(false)
+  const [submit, setSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
   const onFinish = (values: any) => {
-    setLoading(true)
-    const courseData =new FormData()
-    values.CourseName = props.data.courseName
-    for ( var key in values ) {
+    setLoading(true);
+    const courseData = new FormData();
+    values.CourseName = props.data.courseName;
+    for (var key in values) {
       courseData.append(key, values[key]);
     }
-    axios.post("https://script.google.com/macros/s/AKfycbzJ4pbCVkwDZ00d3h6Gs8vzWC1N7Z8O2BWJGG4BhH1EqoH0PxYzPceWkJH_ZY0N0HHK/exec",courseData).then(()=>{
-      setLoading(false)
-      setSubmit(true)
-    })
+    axios
+      .post(
+        "https://script.google.com/macros/s/AKfycbzJ4pbCVkwDZ00d3h6Gs8vzWC1N7Z8O2BWJGG4BhH1EqoH0PxYzPceWkJH_ZY0N0HHK/exec",
+        courseData
+      )
+      .then(() => {
+        setLoading(false);
+        setSubmit(true);
+      });
   };
   return (
     <>
@@ -24,7 +29,13 @@ function index(props: any) {
         <Col className="cd-b1-text" xs={24} sm={24} md={14}>
           <h1 className="cd-b1-heading type-usage">{props.data.courseName}</h1>
           <p className="cd-b1-desc raleway">{props.data.courseDesc}</p>
-          <h2 className="inter" style={{color:"white"}}>
+          {props.data.upComingStartingDate==props.data.upComingEndingDate? <h2 className="inter" style={{ color: "white" }}>
+            {new Date(props.data.upComingStartingDate)
+              .toDateString()
+              .split(" ")
+              .slice(1)
+              .join(" ")}
+          </h2>:<h2 className="inter" style={{ color: "white" }}>
             {new Date(props.data.upComingStartingDate)
               .toDateString()
               .split(" ")
@@ -36,7 +47,7 @@ function index(props: any) {
               .split(" ")
               .slice(1)
               .join(" ")}
-          </h2>
+          </h2>}
           <div className="cd-b1-price-div">
             <Typography.Title
               className="cd-b1-price type-usage"
@@ -59,61 +70,65 @@ function index(props: any) {
             ></iframe>
           </Row>
           <Row className="cd-b1-form-Row">
-       
-      
-            {submit == false?
-          <Spin spinning={loading}>
-            <Form onFinish={onFinish} name="form" className="course-form">
-              <Row>
-                <h4 className="course-form-label raleway">First Name</h4>
-                <Form.Item className="course-halfForm" name="FirstName"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
-                >
-                  <Input className="course-input" placeholder="Ex.John" />
-                </Form.Item>
-              </Row>
-              <Row>
-                <h4 className="course-form-label raleway">Last Name</h4>
-                <Form.Item className="course-halfForm" name="LastName">
-                  <Input className="course-input" placeholder="Ex.Doe" />
-                </Form.Item>
-              </Row>
-              <Row>
-                <h4 className="course-form-label raleway">Mobile Number</h4>
-                <Form.Item className="course-halfForm" name="MobileNumber"
-                rules={[
-                  {
-                    required: true,
-                    pattern:  new RegExp(/^[0-9]+$/),
-                    message:"Invalid mobile number"
-                  },
-                ]}
-                >
-                  <Input className="course-input" placeholder="+91-" />
-                </Form.Item>
-              </Row>
-              <Row>
-                <Form.Item className="fullForm">
-                  <Button
-                    className="sendButton"
-                    htmlType="submit"
-                    shape="round"
-                  >
-                    <h4 className="sendMessage"> Submit Enquiry</h4>
-                  </Button>
-                </Form.Item>
-              </Row>
-            </Form>
-            </Spin>
-            :<Result
-            status="success"
-            title="Enquiry Successfully Submitted!"
-            className="success"
-          />}
+            {submit == false ? (
+              <Spin spinning={loading}>
+                <Form onFinish={onFinish} name="form" className="course-form">
+                  <Row>
+                    <h4 className="course-form-label raleway">First Name</h4>
+                    <Form.Item
+                      className="course-halfForm"
+                      name="FirstName"
+                      rules={[
+                        {
+                          required: true,
+                        },
+                      ]}
+                    >
+                      <Input className="course-input" placeholder="Ex.John" />
+                    </Form.Item>
+                  </Row>
+                  <Row>
+                    <h4 className="course-form-label raleway">Last Name</h4>
+                    <Form.Item className="course-halfForm" name="LastName">
+                      <Input className="course-input" placeholder="Ex.Doe" />
+                    </Form.Item>
+                  </Row>
+                  <Row>
+                    <h4 className="course-form-label raleway">Mobile Number</h4>
+                    <Form.Item
+                      className="course-halfForm"
+                      name="MobileNumber"
+                      rules={[
+                        {
+                          required: true,
+                          pattern: new RegExp(/^[0-9]+$/),
+                          message: "Invalid mobile number",
+                        },
+                      ]}
+                    >
+                      <Input className="course-input" placeholder="+91-" />
+                    </Form.Item>
+                  </Row>
+                  <Row>
+                    <Form.Item className="fullForm">
+                      <Button
+                        className="sendButton"
+                        htmlType="submit"
+                        shape="round"
+                      >
+                        <h4 className="sendMessage"> Submit Enquiry</h4>
+                      </Button>
+                    </Form.Item>
+                  </Row>
+                </Form>
+              </Spin>
+            ) : (
+              <Result
+                status="success"
+                title="Enquiry Successfully Submitted!"
+                className="success"
+              />
+            )}
           </Row>
         </Col>
       </Row>
