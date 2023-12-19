@@ -6,6 +6,7 @@ function index(props: any) {
 
   return (
     <>
+    {imageArray!=null?
       <Row className="cd-b6-outer">
         <Divider>
           <Typography.Title level={3} className="cd-b3-heading type-usage">
@@ -23,7 +24,8 @@ function index(props: any) {
             );
           })}
         </Row>
-      </Row>
+      </Row>:""
+      }
     </>
   );
 }
