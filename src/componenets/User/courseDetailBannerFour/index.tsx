@@ -1,9 +1,13 @@
 import { Row, Typography } from "antd";
 import "./style.scss";
-import "../../font.scss"
+import "../../font.scss";
 
-function index(props:any) {
+function index(props: any) {
+  console.log(props.data.faq.answer);
+  
   return (
+    <>
+    {props.data.faq.answer?
     <Row className="cd-b4-outer">
       <Row className="cd-b4-box">
         <Row className="cd-b4-heading-row">
@@ -11,20 +15,20 @@ function index(props:any) {
             Frequently Asked Questions
           </Typography.Title>
         </Row>
-        {props.data.faq?.map((item:any)=>{
-          return(
-        <Row>
-          <Typography.Title level={5} className="cd-b4-question type-usage">
-            {item.question} ?
-          </Typography.Title>
-          <p className="cd-b4-answer raleway">
-            {item.answer}
-          </p>
-        </Row>
-          )
+        {props.data.faq?.map((item: any) => {
+          return (
+            <Row>
+              <Typography.Title level={5} className="cd-b4-question type-usage">
+                {item.question} ?
+              </Typography.Title>
+              <p className="cd-b4-answer raleway">{item.answer}</p>
+            </Row>
+          );
         })}
       </Row>
-    </Row>
+    </Row>:" "
+    }
+    </>
   );
 }
 
