@@ -8,6 +8,8 @@ import communeBg from "../../../assets/images/Rectangle 6.png"
 import creatorMartBg from "../../../assets/images/Rectangle 6 (2).png"
 import lifescoolBg from "../../../assets/images/Rectangle 6 (1).png"
 import learnMore from "../../../assets/images/Button.png"
+import micDrop from "../../../assets/images/mic-drop-banner.jpg"
+import micDropVertical from "../../../assets/images/mic-drop-vertical.jpg"
 import { useNavigate } from "react-router-dom";
 
 function Index() {
@@ -77,6 +79,12 @@ function Index() {
             </Card>
           </a>
         </Col>
+      </Row>
+      <Row>
+      <a href="https://micdrop.webflow.io/">
+      <img className="mic-drop" alt="example"  src={micDrop}/>
+      <img className="mic-drop-vertical" alt="example"  src={micDropVertical}/>
+            </a>
       </Row>
     </Row>
   );
