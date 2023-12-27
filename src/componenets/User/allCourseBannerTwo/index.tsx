@@ -3,6 +3,7 @@ import "./style.scss";
 import { userApi } from "../../../constants/axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import locationGrey from "../../../assets/images/icons8-location-50-grey.png"
 
 function index() {
   const navigate = useNavigate();
@@ -40,9 +41,16 @@ function index() {
                 <Typography.Title
                   level={4}
                   className="ac-b2-desc-title heading"
+                  style={{marginBottom:"2.5px"}}
                 >
-                  {item.courseName}
+                {item.courseName}
                 </Typography.Title>
+                <Typography>
+                  <Row>
+                <img className="location-grey" src={locationGrey} alt="" />
+                  <p className="ac-b2-location" style={{marginBottom:"2.5px"}}>{item.location}</p>
+                  </Row>
+                </Typography>
                 <Typography className="ac-b2-desc raleway">
                   {item.courseDesc}
                 </Typography>
