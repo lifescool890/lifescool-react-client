@@ -31,6 +31,7 @@ function index(props: any) {
           <h1 className="cd-b1-heading type-usage">{props.data.courseName}</h1>
           <p className="cd-b1-desc raleway">{props.data.courseDesc}</p>
             <Row>
+              <Col xs={24} sm={24} md={12}>
           {props.data.upComingStartingDate==props.data.upComingEndingDate? <h2 className="inter" style={{ color: "white" }}>
             {new Date(props.data.upComingStartingDate)
               .toDateString()
@@ -50,10 +51,17 @@ function index(props: any) {
               .slice(1)
               .join(" ")}
           </h2>}
-
+          </Col>
+          <Col xs={24} sm={24} md={12}>
+            <Row>
+            <Col>
             <img className="location-icon" src={location} alt="" />
+            </Col>
+            <Col>
             <h4 className="location inter">{props.data.location}</h4>
-
+            </Col>
+            </Row>
+            </Col>
           </Row>
           <div className="cd-b1-price-div">
             <Typography.Title
