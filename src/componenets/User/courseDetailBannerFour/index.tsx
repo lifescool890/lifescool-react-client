@@ -3,11 +3,10 @@ import "./style.scss";
 import "../../font.scss";
 
 function index(props: any) {
-  console.log(props.data.faq.answer);
+  console.log(props);
   
   return (
     <>
-    {props.data.faq.answer?
     <Row className="cd-b4-outer">
       <Row className="cd-b4-box">
         <Row className="cd-b4-heading-row">
@@ -26,8 +25,7 @@ function index(props: any) {
           );
         })}
       </Row>
-    </Row>:" "
-    }
+    </Row>
     </>
   );
 }

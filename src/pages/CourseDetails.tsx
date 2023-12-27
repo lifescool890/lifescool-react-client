@@ -27,12 +27,15 @@ function CourseDetails() {
   const getData = async (id: number) => {
 
     await userApi.post("/getOneCourse", { id: id }).then((response) => {
+      console.log("yes");
+      
       setCourseData(response.data.data.data);
       setCourseImages(response.data.data.images);
       setLoading(false);
     });
   };
-
+  console.log(courseData);
+  
   return (
     <>
       <Spin spinning={loading} >

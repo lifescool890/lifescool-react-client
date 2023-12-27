@@ -317,6 +317,17 @@ function index() {
             <RangePicker />
           </Form.Item>
           <Form.Item
+            label="Location"
+            name="location"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
             label="Tutor's Name"
             name="tutorName"
             rules={[

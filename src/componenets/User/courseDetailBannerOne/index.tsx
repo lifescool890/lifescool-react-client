@@ -1,6 +1,7 @@
 import { Row, Col, Typography, Form, Input, Button, Result, Spin } from "antd";
 import "./style.scss";
 import { useState } from "react";
+import location from "../../../assets/images/icons8-location-50.png"
 import axios from "axios";
 
 function index(props: any) {
@@ -29,6 +30,7 @@ function index(props: any) {
         <Col className="cd-b1-text" xs={24} sm={24} md={14}>
           <h1 className="cd-b1-heading type-usage">{props.data.courseName}</h1>
           <p className="cd-b1-desc raleway">{props.data.courseDesc}</p>
+            <Row>
           {props.data.upComingStartingDate==props.data.upComingEndingDate? <h2 className="inter" style={{ color: "white" }}>
             {new Date(props.data.upComingStartingDate)
               .toDateString()
@@ -48,6 +50,11 @@ function index(props: any) {
               .slice(1)
               .join(" ")}
           </h2>}
+
+            <img className="location-icon" src={location} alt="" />
+            <h4 className="location inter">{props.data.location}</h4>
+
+          </Row>
           <div className="cd-b1-price-div">
             <Typography.Title
               className="cd-b1-price type-usage"
