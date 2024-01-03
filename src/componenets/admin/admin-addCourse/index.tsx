@@ -267,7 +267,7 @@ function index() {
             rules={[
               {
                 max: 80,
-                message: "Title should be less than 50 character",
+                message: "Title should be less than 80 character",
               },
               {
                 required: true,
