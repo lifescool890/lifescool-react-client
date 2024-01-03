@@ -26,6 +26,18 @@ const Index: React.FC = () => {
       render: (text) => <a>{text}</a>,
     },
     {
+      title: "Date",
+      dataIndex: "date",
+      key: "date",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Location",
+      dataIndex: "location",
+      key: "location",
+      render: (text) => <a>{text}</a>,
+    },
+    {
       title: "Action",
       key: "action",
       render: (_, record) => (
@@ -85,6 +97,12 @@ const Index: React.FC = () => {
         key: index,
         serial: index + 1,
         courseName: item.courseName,
+        date:new Date(item.upComingStartingDate)
+        .toDateString()
+        .split(" ")
+        .slice(1)
+        .join(" "),
+        location:item.location,
         id: item.id,
       }));
       setTableData(dataSource);

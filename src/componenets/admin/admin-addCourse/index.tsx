@@ -426,7 +426,7 @@ function index() {
               );
             })}
             <Button onClick={addPoints}>+</Button>
-            <Button className="remove-faq" onClick={removePoints}>-</Button>
+            {coursePoints.length==1?"":<Button className="remove-faq" onClick={removePoints}>-</Button>}
           </Form.Item>
           {display == "edit" ? (
             ""
@@ -473,7 +473,7 @@ function index() {
               );
             })}
             <Button onClick={addFaq}>+</Button>
-            <Button className="remove-faq" onClick={removeFaq}>-</Button>
+           {faq.length ==1?"": <Button className="remove-faq" onClick={removeFaq}>-</Button>}
           </Form.Item>
           <Form.Item className="button-group">
             <Button className="cancel-button" onClick={cancel}>
