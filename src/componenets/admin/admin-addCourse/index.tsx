@@ -266,7 +266,7 @@ function index() {
             name="courseName"
             rules={[
               {
-                max: 50,
+                max: 80,
                 message: "Title should be less than 50 character",
               },
               {
