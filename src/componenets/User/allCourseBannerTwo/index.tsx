@@ -15,7 +15,13 @@ function index() {
 
   const getData = () => {
     userApi.get("/getAllCourses").then((response) => {
-      setData(response.data.data);
+      const data =response.data.data
+      const result=data.filter((item:any)=>{
+        return item.Disable==false
+      })
+      console.log(result);
+      
+      setData(result);
     });
   };
 

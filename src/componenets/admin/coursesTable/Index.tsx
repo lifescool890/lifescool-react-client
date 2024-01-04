@@ -38,6 +38,12 @@ const Index: React.FC = () => {
       render: (text) => <a>{text}</a>,
     },
     {
+      title: "isDisabled",
+      dataIndex: "isDisabled",
+      key: "isDisabled",
+      render: (text, record) => <Button onClick={()=>changeVisibility(record.id,text)}>{text==false?"Disable":"Enable"}</Button>,
+    },
+    {
       title: "Action",
       key: "action",
       render: (_, record) => (
@@ -68,6 +74,12 @@ const Index: React.FC = () => {
       ),
     },
   ];
+
+  const changeVisibility=(id:any,text:any)=>{
+    adminApi.post("/changeVisibility",{id,text}).then(() => {
+      setReload(!reload);
+  })
+  }
   const [tableData, setTableData] = useState<DataType[]>([]);
   const [reload, setReload] = useState(false);
   const navigate = useNavigate();
@@ -104,6 +116,7 @@ const Index: React.FC = () => {
         .join(" "),
         location:item.location,
         id: item.id,
+        isDisabled:item.Disable
       }));
       setTableData(dataSource);
     });
