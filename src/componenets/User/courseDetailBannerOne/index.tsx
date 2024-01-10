@@ -65,13 +65,14 @@ function index(props: any) {
           </Row>
           <div className="cd-b1-price-div">
             <Row>
+              {props.data.priceWithOutOffer == 0 ?"":
             <Typography.Title
               className="cd-b1-priceWithOutOffer type-usage"
               style={{ color: "white", marginTop:"45px" }}
               level={4}
             >
               ₹{props.data.priceWithOutOffer}
-            </Typography.Title>
+            </Typography.Title>}
             <Typography.Title
               className="cd-b1-price type-usage"
               style={{ color: "white" }}
