@@ -288,6 +288,22 @@ function index() {
             <TextArea rows={4} name="courseDesc" />
           </Form.Item>
           <Form.Item
+            label="Price Before Offer"
+            name="priceWithOutOffer"
+            rules={[
+              {
+                required: true,
+                message: "A value must be a number ",
+                pattern: new RegExp(/^[0-9]+$/),
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
             label="Price"
             name="price"
             rules={[

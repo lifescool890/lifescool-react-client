@@ -64,6 +64,14 @@ function index(props: any) {
             </Col>
           </Row>
           <div className="cd-b1-price-div">
+            <Row>
+            <Typography.Title
+              className="cd-b1-priceWithOutOffer type-usage"
+              style={{ color: "white", marginTop:"45px" }}
+              level={4}
+            >
+              ₹{props.data.priceWithOutOffer}
+            </Typography.Title>
             <Typography.Title
               className="cd-b1-price type-usage"
               style={{ color: "white" }}
@@ -71,6 +79,8 @@ function index(props: any) {
             >
               ₹{props.data.price}
             </Typography.Title>
+            
+            </Row>
           </div>
         </Col>
         <Col className="cd-b1-side" xs={24} sm={24} md={10}>
