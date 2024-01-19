@@ -19,6 +19,7 @@
     :hover{
         cursor: pointer;
     }
+    
 
 }
 .ac-b2-img{
@@ -33,9 +34,14 @@
 }
 .ac-b2-desc-title{
     margin: 0;
+   width: 100%; 
 }
 .ac-b2-price{
     margin-left: auto;
+}
+.ac-b2-priceWithoutOffer{
+    margin-left: auto;
+    text-decoration: line-through;
 }
 .ac-b2-desc{
     width: 80%;
@@ -75,3 +81,34 @@
     margin-left: 5px;
     color:#7b7979;
 }
+.ac-b2-segment-row{
+    width: 100%;
+}
+.ac-b2-segment{
+    margin-left: auto;
+    margin-right: auto;
+}
+.ant-segmented {
+    background-color: rgb(226, 115, 89);
+   color:white; 
+   :hover{
+    color: white;
+   }
+  }
+
+  label.ant-segmented-item.ant-segmented-item-selected {
+    color: rgb(0, 0, 0);
+    :hover{
+        color:rgb(226, 115, 89);
+    }
+
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 100;
+    }
+  }
