@@ -57,7 +57,7 @@ console.log(trend);
               />
               <div className="card-desc-div">
                 <Col className="trendCardHeadRow">
-                  <h2 className="raleway">{item.courseName}</h2>
+                  <h2 className="card-head raleway">{item.courseName}</h2>
                 </Col>
                 <p className="card-desc raleway">{item.courseDesc}</p>
                 <Typography.Title level={4}>
